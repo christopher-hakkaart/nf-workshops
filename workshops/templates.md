@@ -1,7 +1,7 @@
 # Streamline your Nextflow pipeline development with nf-core templates
 
 As the ecosystem evolves, so does the template.
-Different version of nf-core tools have different templates. 
+Different versions of nf-core tools have different templates. 
 
 Check the versions of nextflow is 23.10.1:
 
@@ -15,7 +15,7 @@ Check the version of nf-core is 2.13:
 nf-core --version
 ```
 
-> This is written for most recent nf-core tools 2.13
+> This is written for the most recent nf-core tools 2.13
 
 ## Getting started
 
@@ -70,7 +70,7 @@ Template areas
 
 A pipeline template named `myorg-mypipeline` was created.
 
-Code for submitting this to GitHub was suggested and should be modified to submit the code to repo.
+Code for submitting this to GitHub was suggested and should be modified to submit the code to the repository.
 
 ```
 cd /Users/chris/workspace/myorg-mypipeline
@@ -90,7 +90,7 @@ To https://github.com/<USERNAME>/<REPO>.git
  * [new branch]      main -> main
 ```
 
-The `TEMPLATE` branch is especially important as it is used by the the `nf-core sync` command and will help integrate template changes the pipeline.
+The `TEMPLATE` branch is especially important as it is used by the `nf-core sync` command and will help integrate template changes in the pipeline.
 
 ## Anatomy of the nf-core template
 
@@ -98,19 +98,19 @@ The template can be overwhelming but a complete understanding isn't required to 
 
 Important parts:
 
-1. The name and version of the pipeline is in the right place throughout this template. This is important for the pipeline development as the name to identify the pipeline and will be incorporated into some of the logging and reporting features.
+1. The name and version of the pipeline are in the right place throughout this template. This is important for pipeline development as the name to identify the pipeline and will be incorporated into some of the logging and reporting features.
    - e.g., `workflows/mypipeline.nf`
 
-2. The template comes with the git and config files that work together help manage your pipeline development with GitHub and CI testing.
+2. The template comes with the git and config files that work together to help manage your pipeline development with GitHub and CI testing.
    - e.g., `.github/workflows`, `.gitignore`, and `.prettier.yml`
 
-3. The template comes with a set of files for linting tests with `nf-core lint` and are designed to help you write good code and help keep all of the moving parts in the pipeline in sync.
+3. The template comes with a set of files for linting tests with `nf-core lint` and is designed to help you write good code and help keep all of the moving parts in the pipeline in sync.
   - e.g., `nf-core.yml`
 
 4. The template comes with a schema that is used for parameter validation and documentation to help you write good code and to help others run and understand the pipeline.
    - e.g., `nextflow_schema.json`
 
-5. This is a consistent format and every nf-core pipeline that gives a sense of familiarity and plugs into the wider nf-core ecosystem.
+5. A consistent format for every nf-core pipeline giving a sense of familiarity and plugs into the wider nf-core ecosystem.
    - e.g., integration with nf-core/modules and schema is rendered in Seqera platform.
 
 ## New features as of nf-core/tools version 2.13
@@ -123,7 +123,7 @@ Also more modular and is paving the way for a more flexible template in the futu
 
 ## A pipeline out of the box
 
-Template is a working pipeline that can use the test profile (`conf/test.config`) for development purposes.
+The template is a working pipeline that can use the test profile (`conf/test.config`) for development purposes.
 
 ```
 nextflow run myorg-mypipeline -profile test,docker --outdir results
@@ -133,7 +133,7 @@ There are additional profiles for software management (e.g., `docker`, `singular
 
 Test profile is important for template CI testing that runs with new commits are made to GitHub and ensures no breaking changes.
 
-## Plug in components
+## Plugin components
 
 Can pull in components from the nf-core ecosystem (e.g., modules and subworkflows).
 
@@ -142,7 +142,7 @@ cd myorg-mypipeline
 nf-core modules install
 ```
 
-Follow prompt to pull in `fastp` module.
+Follow the prompt to pull in `fastp` module.
 
 ```
 ? Tool name: fastp
@@ -156,7 +156,7 @@ Gives the code to be added to `workflows/mypipeline.nf`.
 include { FASTP } from '../modules/nf-core/fastp/main'
 ```
 
-Module comes packaged with everything needed to run with a profile locally and on the cloud.
+The module comes packaged with everything needed to run with a profile locally and on the cloud.
 
 Can find inputs required to plug module into pipeline in `modules/nf-core/fastp/main.nf`.
 
@@ -186,7 +186,7 @@ FASTP (
 
 Modules are being tracked in `modules.json`.
 
-Can also use private repository of modules using `--git-remote` in `nf-core modules install` command.
+Can also use a private repository of modules using `--git-remote` in `nf-core modules install` command.
 
 There are over 1000 modules and 50 subworkflows that are available from the nf-core repository.
 
@@ -198,7 +198,7 @@ There are lots of moving parts and linting helps check your development practise
 nf-core lint
 ```
 
-There are warnings to keep you honest and help with development (e.g., TODOs) and reproducibility (changes between local vs remote).
+There are warnings to keep you honest and help with development (e.g., TODOs) and reproducibility (changes between local and remote).
 
 ```
 ╭───────────────────────╮
@@ -229,7 +229,7 @@ Running `nf-core lint` again will now throw an error.
 ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-The different between the local and remote can be patched with nf-core tooling.
+The difference between the local and remote can be patched with nf-core tooling.
 
 ```
 nf-core modules patch
@@ -256,7 +256,7 @@ All tests by the `nf-core lint` command will now pass.
 
 ## Pipeline schema
 
-The schema should be updated with details for every paramter.
+The schema should be updated with details for every parameter.
 
 Adding a parameter (`skip_fastp`) to skip the `FASTP` process will break the linting if the schema is not updated. 
 
@@ -317,7 +317,7 @@ git push
 nf-core sync
 ```
 
-The tooling merges updates suggests a git command.
+The tooling merges updates suggesting a git command.
 
 ```
 cd /Users/chris/workspace/myorg-mypipeline                            
